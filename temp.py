@@ -4,11 +4,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from matplotlib.patches import Polygon
-from matplotlib.collections import PatchCollection
-from matplotlib.colors import Normalize
-from shapely.geometry import Point, LineString
-
 path = r'C:\Users\Chris\Desktop\Machine Learning Raw Data\air-quality-madrid\stations.csv'
 stations = pd.read_csv(path)
 stations.head()
