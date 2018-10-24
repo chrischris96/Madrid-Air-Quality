@@ -2,6 +2,7 @@
 import geopandas as gpd
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from matplotlib.patches import Polygon
 from matplotlib.collections import PatchCollection
@@ -26,5 +27,15 @@ streetselected = calleandavd.append(ctraselected)
 
 #xlim=(420000,460000)
 #ylim=(4460000,4490000)
-base = streetselected.plot(figsize=(32,20), color='blue', edgecolor='blue',markersize=0.01); 
-mapMadrid = geoDF_stations_new.plot(figsize=(32,20),ax=base, marker='o',color='red',markersize=100.0);
+
+base = geoDF_stations_new.plot(figsize=(32,20), marker='o',color='red',markersize=100.0,label='Stations')
+
+mapMadrid = streetselected.plot(figsize=(32,20), ax=base,color='blue', edgecolor='blue',markersize=0.01,label='Streets') 
+
+plt.ylim((4465000,4485000))
+plt.xlim((430000,455000))
+plt.legend(loc = 'lower right', framealpha=1)
+plt.xlabel("Longitude")
+plt.ylabel("Latitude")
+plt.title("Madrid city center street map with measurement stations")
+plt.plot(mapMadrid)
